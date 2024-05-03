@@ -1,4 +1,4 @@
-# Daisy UI Admin Dashboard Template - DashWind 
+# MES  
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 This project is assisted with UI templates from Daisy for free using Tailwind CSS and React js equipped with redux toolkit and backend using laravel.
