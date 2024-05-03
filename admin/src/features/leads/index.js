@@ -11,7 +11,7 @@ const TopSideButtons = () => {
     const dispatch = useDispatch();
 
     const openAddNewLeadModal = () => {
-        dispatch(openModal({ title: 'Add New Lead', bodyType: MODAL_BODY_TYPES.LEAD_ADD_NEW }));
+        dispatch(openModal({ title: 'Add New ', bodyType: MODAL_BODY_TYPES.LEAD_ADD_NEW }));
     };
 
     return (
@@ -25,17 +25,16 @@ const Leads = () => {
     const { leads } = useSelector(state => state.lead);
     const dispatch = useDispatch();
 
+    
+
     useEffect(() => {
         dispatch(getLeadsContent());
     }, [dispatch]);
 
-    const getDummyStatus = (index) => {
-        if (index % 5 === 0) return <div className="badge">Not Interested</div>;
-        else if (index % 5 === 1) return <div className="badge badge-primary">In Progress</div>;
-        else if (index % 5 === 2) return <div className="badge badge-secondary">Sold</div>;
-        else if (index % 5 === 3) return <div className="badge badge-accent">Need Followup</div>;
-        else return <div className="badge badge-ghost">Open</div>;
-    };
+    useEffect(() => {
+        // Lakukan sesuatu setelah data lead berubah, misalnya, log data lead
+        console.log('Data lead berubah:', leads);
+    }, [leads]); // Efek samping dijalankan setiap kali ada perubahan pada leads
 
     const deleteCurrentLead = (index) => {
         dispatch(openModal({
@@ -52,24 +51,34 @@ const Leads = () => {
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Tahapan Proses</th>
-                                <th>Bagian</th>
-                                <th>Lead Time (Hari)</th>
+                                <th>Kode Produk</th>
+                                <th>Nama Produk</th>
+                                <th>Total Lead Time</th>
+                                <th>Dok Production Lead Time</th>
+                                <th>PIC PPC</th>
                                 <th>Keterangan</th>
-                                <th></th>
+                                <th>ASSY MH</th>
+                                <th>ASSY MCH</th>
+                                <th>Testing MH</th>
+                                <th>Testing MCH</th>
                             </tr>
                         </thead>
                         <tbody>
                             {leads.map((lead, index) => (
                                 <tr key={index}>
                                     <td>{index + 1}</td>
-                                    <td>{lead.first_name}</td>
-                                    <td>{lead.keterangan}</td>
+                                    <td>{lead.kode_produk}</td>
+                                    <td>{lead.nama_produk}</td>
                                     <td>
-                                        {lead.startTime ? moment.duration(moment().diff(moment(lead.startTime))).asDays() : 'Not Started'}
+                                        {lead.total_lead_time}
                                     </td>
-                                    <td>{getDummyStatus(index)}</td>
-                                    <td>{lead.last_name}</td>
+                                    <td>{lead.dok_production_lead_time}</td>
+                                    <td>{lead.pic_ppc}</td>
+                                    <td>{lead.keterangan}</td>
+                                    <td>{lead.assy_mh}</td>
+                                    <td>{lead.assy_mch}</td>
+                                    <td>{lead.testing_mh}</td>
+                                    <td>{lead.testing_mch}</td>
                                     <td>
                                         <button className="btn btn-square btn-ghost" onClick={() => deleteCurrentLead(index)}>
                                             <TrashIcon className="w-5" />

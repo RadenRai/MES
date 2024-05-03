@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import TitleCard from '../../components/Cards/TitleCard';
 import { openModal } from '../common/modalSlice';
 import { deleteMachine, getUtilitasMesinContent } from './utilitasMesinSlice'; // Memperbaiki impor
-
 import { CONFIRMATION_MODAL_CLOSE_TYPES, MODAL_BODY_TYPES } from '../../utils/globalConstantUtil';
 import TrashIcon from '@heroicons/react/24/outline/TrashIcon';
 

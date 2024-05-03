@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import LandingIntro from './LandingIntro'; // Impor komponen LandingIntro
 import ErrorText from '../../components/Typography/ErrorText';
 import InputText from '../../components/Input/InputText';
 
@@ -50,7 +51,7 @@ function Register() {
             <div className="card mx-auto w-full max-w-5xl shadow-xl">
                 <div className="grid md:grid-cols-2 grid-cols-1 bg-base-100 rounded-xl">
                     <div className=''>
-                        {/* LandingIntro component */}
+                        <LandingIntro /> {/* Gunakan komponen LandingIntro */}
                     </div>
                     <div className='py-24 px-10'>
                         <h2 className='text-2xl font-semibold mb-2 text-center'>Register</h2>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPageTitle } from '../../features/common/headerSlice';
-import ProduksiMain from '../../features/produksi/ProduksiMain'; // Perbaiki jalur impor
+import ProduksiMain from '../../features/common/headerSlice'; // Perbaiki jalur impor
 
 function InternalPage() {
     const dispatch = useDispatch();

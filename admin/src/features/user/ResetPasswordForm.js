@@ -40,7 +40,7 @@ function ResetPasswordForm() {
             <div className="card mx-auto w-full max-w-md shadow-xl">
                 <div className="py-8 px-10">
                     <h2 className="text-2xl font-semibold mb-4 text-center">Reset Password</h2>
-                    
+                    w
                     {resetSuccessful ? (
                         <>
                             <p className="my-4 text-xl font-bold text-center text-green-500">Password reset successful!</p>

@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// Fungsi untuk mendapatkan konten utilitas mesin dari backend (contoh implementasi)
-const getUtilitasMesinContent = async () => {
+// Fungsi async untuk mendapatkan konten utilitas mesin dari backend
+const fetchUtilitasMesinContent = async () => {
     // Contoh implementasi: mengembalikan data mesin dari sumber data lokal
     return [
         { id: 1, name: 'Machine 1', status: 'Running' },
@@ -9,6 +9,15 @@ const getUtilitasMesinContent = async () => {
         { id: 3, name: 'Machine 3', status: 'Running' },
     ];
 };
+
+// Membuat thunk asinkron untuk fetching data mesin
+export const getUtilitasMesinContent = createAsyncThunk(
+    'utilitasMesin/fetchContent',
+    async () => {
+        const response = await fetchUtilitasMesinContent();
+        return response;
+    }
+);
 
 // Membuat slice utilitas mesin
 const utilitasMesinSlice = createSlice({
@@ -44,4 +53,3 @@ const utilitasMesinSlice = createSlice({
 // Ekspor action creators dan reducer
 export const { deleteMachine } = utilitasMesinSlice.actions;
 export default utilitasMesinSlice.reducer;
-    
